@@ -23,10 +23,10 @@ The focus here is on steps to take, tools to run, things to check. Other files i
 Check photos for metadata or even interesting data captured. Examples could be badges, information on whiteboards, building layout.
 - LinkedIn
   - [ ] Check employees. Look for security team, developers, admins. Get a feel for tech stack.
-- Facebook
-- Twitter
-- Instagram
-- Job Postings
+- [ ] Facebook
+- [ ] Twitter
+- [ ] Instagram
+- [ ] Job Postings
   - [ ] What positions do they need filled?
   - [ ] What technology stack are they looking for/skills desired?
   - [ ] Recruiter contact info

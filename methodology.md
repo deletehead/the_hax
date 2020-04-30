@@ -47,11 +47,11 @@ Check photos for metadata or even interesting data captured. Examples could be b
 - [ ] Cloud checks
   - [ ] Wide open S3 buckets? https://buckets.grayhatwarfare.com/
 
-
 ## Wireless
 
 ## Network Scanning & Enumeration
 - [ ] Kick off a Nessus scan if applicable
+- [ ] Scan the CDE/target environment: `masscan -iL cde.txt -p0-65535 -oG masscan-cde-allports`
 - [ ] Ping sweep
 - [ ] Kick off a big top 1024 scan. Don't forget to log it in case the scans hang up. Increase to `-T5` if you're feeling adventurous:
    ```

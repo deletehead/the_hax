@@ -5,14 +5,15 @@ The focus here is on steps to take, tools to run, things to check. Other files i
 
 ## Things to Not Forget
 - Day 1: Focus on recon, scanning, and information gathering.
-  [ ] Begin scanning the target network segment to see if anything can reach it
-  [ ] If wireless is in scope, set this up and let it run/capture
-  [ ] Ask a contact to access the target network and verify the way they do it + document -- if remote, get documentation
-  [ ] Map out the network & target environment -- don't worry about exploitation yet, diligence in enumeration will pay off
-  [ ] Start password spraying soon, being mindful of lockout policy (just ask)
+  - [ ] Begin scanning the target network segment to see if anything can reach it
+  - [ ] If wireless is in scope, set this up and let it run/capture
+  - [ ] Ask a contact to access the target network and verify the way they do it + document -- if remote, get documentation
+  - [ ] Map out the network & target environment -- don't worry about exploitation yet, diligence in enumeration will pay off
+  - [ ] Start password spraying soon, being mindful of lockout policy (just ask)
+
 - Day 2: Focus on foothold
-  [ ] Attempt to get a foothold/creds if you don't already have one
-  [ ] Once you have a foothold, map out the directory enviro
+  - [ ] Attempt to get a foothold/creds if you don't already have one
+  - [ ] Once you have a foothold, map out the directory enviro
 
 ## Open Source Intelligence
 ## Wireless

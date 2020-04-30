@@ -199,3 +199,18 @@ Includes web services (not just port 80)
    5600   Net-NTLMv2 (from Responder, ntlmrelayx.py)
    13100  Kerberoast hashes (KRB5TGS 23)
    ```
+## OSINT
+- Harvest emails:
+  - `theHarvester`: 
+    ```
+    theHarvester -d firenation.com -b all
+    sqlite3
+    > select * from results
+    ```
+- DNS and Email checks
+  - SPF, DMARC, and DKIM settings:
+    ```
+    dig txt firenation.com                       # check for SPF
+    dig txt _dmarc.firenation.com                # check for DMARC
+    dig txt selector._domainkey.firenation.com   # check for DKIM
+    ```

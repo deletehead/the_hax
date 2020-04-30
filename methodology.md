@@ -54,10 +54,10 @@ Check photos for metadata or even interesting data captured. Examples could be b
 - [ ] Scan the CDE/target environment: `masscan -iL cde.txt -p0-65535 -oG masscan-cde-allports`
 - [ ] Ping sweep
 - [ ] Kick off a big top 1024 scan. Don't forget to log it in case the scans hang up. Increase to `-T5` if you're feeling adventurous:
-   ```
-   mkdir scans
-   nmap -iL subnets-firenation.lst -sV -sC -T5 -oA firenation-sV-sC -v | tee scans/nmap.log
-   ```
+  ```
+  mkdir scans
+  nmap -iL subnets-firenation.lst -sV -sC -T4 -oA firenation-sV-sC --open --max-retries 1 --min-parallelism 128 --min-hostgroup 128 -v | tee scans/nmap.log
+  ```
 - [ ] Parse through open ports with: https://raw.githubusercontent.com/altjx/ipwn/master/nmap_scripts/nmapscrape.rb
 - [ ] Perform reverse DNS lookups on the domain: `nmap -iL subnets-firenation.lst -sL -oA dns-lookup`
 - [ ] Scan for SMB and for SMB Signing: `crackmapexec smb open-ports/445.txt | tee scans/cme-smb-scan.log`
@@ -103,9 +103,15 @@ Check photos for metadata or even interesting data captured. Examples could be b
     - https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/winPEAS
 
 ## Lateral Movement & Domain PrivEsc
+- [ ] Run BloodHound
+  - Mark owned users and computers as you compromise them
+  - Identify abusable attack paths
 - [ ] Kerberoasting
 - [ ] AS-REP roasting
-- [ ] With owned accounts, log in to email and look for secrets. Try `CredSniper.ps1`. Also look at Teams, Skype history, etc. for juicies.
+- [ ] With owned accounts, log in to email and look for secrets. Try `CredSniper.ps1`. Also look at Teams, Skype history, etc. for juicies
+- [ ] Run `CredNinja.py` against the network with the compromised accounts. See if you have local admin and can keep dumping hashes
+- [ ] Check for SMB servers. Use `smbclient.py` and `plunder` to search for interesting files in those shares that you can access
+- Check domain 
 
 
 ## Persistence & Data Exfil

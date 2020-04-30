@@ -63,7 +63,7 @@ Check photos for metadata or even interesting data captured. Examples could be b
 - [ ] Scan for SMB and for SMB Signing: `crackmapexec smb open-ports/445.txt | tee scans/cme-smb-scan.log`
 - [ ] Scan for top MS vulns: `nmap -iL open-ports/445.txt -p445 --script=smb-vuln-ms08-067,smb-vuln-ms17-010 -v | tee scans/nmap-smb-vulns.log`
 - [ ] Scan for BlueKeep (Win7 is a win, Win2k8 can DoS)
-- [ ] Check for Jenkins instances. [TODO: get Jenkins ports/enum]
+- [ ] Check for Jenkins instances. Typically runs on TCP/8080 (check `aquatone` output).
 - [ ] SNMP checks
 - [ ] `rpcclient` Check for NULL sessions, enum info if auth'd
 - [ ] KRB guessing

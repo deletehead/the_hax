@@ -131,8 +131,11 @@ References:
 
 ## TCP/80 HTTP
 Includes web services (not just port 80)
-- Check for Jenkins
-  - Exploit Jenkins
+- Check for Jenkins. Typically runs on TCP/8080
+  - Typically runs build scripts etc as SYSTEM
+  - Auth can bind to AD or be local. Check `/asynchPeople/` for a list of users anonymously.
+  - To run commands:
+    -  
 - Check for Splunk
 
 

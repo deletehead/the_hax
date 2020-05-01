@@ -142,7 +142,9 @@ Includes web services (not just port 80)
       proc.consumeProcessOutput(sout, serr) proc.waitForOrKill(1000)
       println "out> $sout err> $serr"
       ```
-    - For non-admins, but those who can create/add/edit builds, you can run a build cmd. Edit the build, add a build step, "Execute Windows batch cmd", and then `powershell.exe -c` away!
+    - For non-admins, but those who can create/add/edit builds, you can run a build cmd
+      - Edit the build, add a build step, "Execute Windows batch cmd", and then `powershell.exe -c` away!
+      - If build steps/commands exist, move yours to the top. If any step fails, it cancels the subsequent ones
 - Check for Splunk
 
 

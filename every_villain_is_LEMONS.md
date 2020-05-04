@@ -188,6 +188,27 @@ Includes web services (not just port 80)
   net users psc-jm
   del C:\Webserver\abyss.exe  # house cleaning
   ```
+- PowerShell credentials (untested):
+  - Create credential material out of cleartext creds:
+  ```
+  $creds = Get-Credential  # interactive prompt
+  # to use w/o a pop up and bad opsec:
+  $user = 'evil.local\admin01'
+  $password = convertto-securestring -String "boogie-boogie-boogie" -AsPlainText -Force
+  $creds = new-object -typename System.Management.Automation.PSCredential -argumentlist $username, $password
+  ```
+- PSRemoting over TCP/5985 or TCP/5986[ssl] (WSMAN WinRM)
+  - All of these will have the option to use `-Credential` to specify a separate cred other than default to logon creds, or `-ComputerName` which can take a single computer, or a list of compies for `Invoke-Command`
+  - Run a script block on a server:
+  ```
+  Invoke-Command -ComputerName dc.evil.local -ScriptBlock {net users; net localgroup administrators}
+  ```
+  - Create a new powershell session. Default will use logon creds, but specify `-Credential` to pass in a PS cred
+  ```
+  $sesh = New-PSSession -ComputerName dc.evil.local
+  Enter-PSSession -Session $sesh
+  ```
+
 
 ## Password Cracking
 - [ ] Clone [SecLists](https://github.com/danielmiessler/SecLists.git): `cd /opt/ && git clone https://github.com/danielmiessler/SecLists.git`

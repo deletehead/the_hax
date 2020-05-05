@@ -131,6 +131,11 @@ References:
 
 ## TCP/80 HTTP
 Includes web services (not just port 80)
+- Aquatone
+  - Pipe in a text file, and specify servers. Out files will be in cwd
+  ```
+  cat hosts.txt | /opt/aquatone -out tools/aquatone -ports 80,81,280,300,443,591,593,623,664,777,808,832,981,1010,1183,1184,1311,2082,2087,2095,2381,2480,3000,3128,3333,4035,4036,4243,4443,4567,4711,4848,4993,5000,5104,5108,5554,5800,5801,5802,5803,5988,5989,6543,6788,7000,7004,7072,7396,7443,7474,7627,8000,8001,8008,8080,8014,8042,8069,8081,8088,8090,8091,8118,8123,8172,8222,8243,8280,8281,8333,8443,8444,8445,8500,8765,8834,8880,8888,8983,9000,9043,9060,9090,9091,9200,9443,9800,9981,12443,1680,16992,16993,18091,20002,20720,28017
+  ```
 - Check for Jenkins. Typically runs on TCP/8080
   - Typically runs build scripts etc as SYSTEM
   - Auth can bind to AD or be local. Check `/asynchPeople/` for a list of users anonymously.

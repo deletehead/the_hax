@@ -60,7 +60,7 @@ References:
   - [ ] Spray n' pray mindful of above: `hydra -L users.lst -p 'Spring202X!' smb://target-smb-server`
   - [ ] Mark users as `Owned` as you go (if you get either their NT hash or cleartext creds), constantly looking for escalation paths
   - [ ] Search around and get a good feel for the environment. Mark certain interesting targets as high-value.
-
+- Get AD module: `Add-WindowsFeature RSAT-AD-PowerShell` & `Import-Module ActiveDirectory`
 
 ## TCP/88 Kerberos
 - KRB5 Guessing

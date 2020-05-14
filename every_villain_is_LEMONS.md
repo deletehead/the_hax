@@ -239,6 +239,19 @@ Includes web services (not just port 80)
   Enter-PSSession -Session $sesh
   ```
 
+## BloodHound
+- Cypher Queries
+  - All unconstrained delegation servers:
+    ```
+    MATCH (c:Computer {unconstraineddelegation: true})
+    RETURN c.name
+    ```
+  - Find all high value targets that don't have LAPS:
+    ```
+    MATCH (c:Computer {haslaps: false})
+    WHERE c.highvalue=true  # REMOVE to just get all non-LAPS machines
+    RETURN c
+    ```
 
 ## Password Cracking
 - [ ] Clone [SecLists](https://github.com/danielmiessler/SecLists.git): `cd /opt/ && git clone https://github.com/danielmiessler/SecLists.git`

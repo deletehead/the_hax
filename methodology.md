@@ -14,6 +14,9 @@ The focus here is on steps to take, tools to run, things to check. Other files i
 - Day 2: Focus on foothold
   - [ ] Attempt to get a foothold/creds if you don't already have one
   - [ ] Once you have a foothold, map out the directory enviro
+  
+- Day 3-5:
+  - [ ] When you can access a bunch of servers, start port scanning from those to the CDE
 
 ## Open Source Intelligence
 - [ ] Simply *Google the target*. What does the company do? What information do they store/process? What's their business?

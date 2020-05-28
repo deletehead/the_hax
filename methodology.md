@@ -109,9 +109,12 @@ Check photos for metadata or even interesting data captured. Examples could be b
 - [ ] Kerberoasting
 - [ ] AS-REP roasting
 - [ ] With owned accounts, log in to email and look for secrets. Try `CredSniper.ps1`. Also look at Teams, Skype history, etc. for juicies
+- [ ] Identify servers AND users that are configured for unconstrained delegation
+- [ ] Identify servers AND users that are configured for constrained delegation
+- [ ] Check for SMB signing not required and such. Consider the printer bug and see if you can relay that.
 - [ ] Run `CredNinja.py` against the network with the compromised accounts. See if you have local admin and can keep dumping hashes
 - [ ] Check for SMB servers. Use `smbclient.py` and `plunder` to search for interesting files in those shares that you can access
-- Check domain 
+- [ ] Check domain 
 
 
 ## Persistence & Data Exfil

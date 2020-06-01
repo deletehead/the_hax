@@ -96,10 +96,9 @@ References:
   ```
 
 - Parse `onesixtyone` results so it's `10.10.10.10 public` in a txt file, then run this py script to `snmp-check` all the things and check if any is RW access:
-  ```
+  ```python
   #!/usr/bin/env python
   import os, sys
-  
   with open('onesixtyone/onesixtyone-checkfree.txt', 'r') as file:
     lines = file.readlines()
     lines = [x.strip() for x in lines]

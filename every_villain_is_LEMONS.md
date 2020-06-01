@@ -96,22 +96,22 @@ References:
   ```
 
 - Parse `onesixtyone` results so it's `10.10.10.10 public` in a txt file, then run this py script to `snmp-check` all the things and check if any is RW access:
-  ```python
-  #!/usr/bin/env python
-  import os, sys
-  with open('onesixtyone/onesixtyone-checkfree.txt', 'r') as file:
-    lines = file.readlines()
-    lines = [x.strip() for x in lines]
-    for line in lines:
-      host,string = line.split(' ')
-      cmd1 = "snmp-check -w -c "+"'"+string+"' "+host+" > snmp-check/snmp-check-"+host+"-v1.txt"
-      print('[+] Running: '+cmd1)
-      os.system(cmd1)
-      cmd2 = "snmp-check -w -v 2c -c "+"'"+string+"' "+host+" > snmp-check/snmp-check-"+host+"-v2c.txt"
-      print('[+] Running: '+cmd2)
-      os.system(cmd2)
-  file.close
-  ```
+```python
+#!/usr/bin/env python
+import os, sys
+with open('onesixtyone/onesixtyone-checkfree.txt', 'r') as file:
+  lines = file.readlines()
+  lines = [x.strip() for x in lines]
+  for line in lines:
+    host,string = line.split(' ')
+    cmd1 = "snmp-check -w -c "+"'"+string+"' "+host+" > snmp-check/snmp-check-"+host+"-v1.txt"
+    print('[+] Running: '+cmd1)
+    os.system(cmd1)
+    cmd2 = "snmp-check -w -v 2c -c "+"'"+string+"' "+host+" > snmp-check/snmp-check-"+host+"-v2c.txt"
+    print('[+] Running: '+cmd2)
+    os.system(cmd2)
+file.close
+```
 
 - Set up FTP server and FTP using a SNMP write string. Similar method for TFTP (which doesn't try to auth but could be blocked). Check the blog for TFTP instructions. Remember to have a 777 file in the TFTP root you're using.  
   ```

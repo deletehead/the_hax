@@ -61,6 +61,10 @@ Check photos for metadata or even interesting data captured. Examples could be b
   mkdir scans
   nmap -iL subnets-firenation.lst -sV -sC -T4 -oA firenation-sV-sC --open --max-retries 1 --min-parallelism 128 --min-hostgroup 128 -v | tee scans/nmap.log
   ```
+- [ ] If network segmentation checks are part of the pentest, then start scanning the target networks asap. If you can do a full `-p-` scan then go for it, but if it's massive, here's the minimum ports you wanna scan:
+  ```
+  -p21,22,23,25,53,80,111,121,135,139,443,445,1433,1521,2049,3306,3389,4786,5945,5985,8080,8443,9090,9443,9875,2093,49152,902,5900,2000,389,636,8000,10943
+  ```
 - [ ] Parse through open ports with: https://raw.githubusercontent.com/altjx/ipwn/master/nmap_scripts/nmapscrape.rb
 - [ ] Perform reverse DNS lookups on the domain: `nmap -iL subnets-firenation.lst -sL -oA dns-lookup`
 - [ ] Scan for SMB and for SMB Signing: `crackmapexec smb open-ports/445.txt | tee scans/cme-smb-scan.log`

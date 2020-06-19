@@ -109,7 +109,7 @@ Check photos for metadata or even interesting data captured. Examples could be b
     - https://book.hacktricks.xyz/windows/windows-local-privilege-escalation
     - https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/winPEAS
 
-## Lateral Movement & Domain PrivEsc
+## Domain PrivEsc
 - [ ] Run BloodHound
   - Mark owned users and computers as you compromise them
   - Identify abusable attack paths
@@ -123,6 +123,16 @@ Check photos for metadata or even interesting data captured. Examples could be b
 - [ ] Check for SMB servers. Use `smbclient.py` and `plunder` to search for interesting files in those shares that you can access
 - [ ] Check domain 
 
+## Lateral Movement to Restricted Segment
+Assuming it's a PCI test, I'll use CDE for restricted segment:
+- [ ] Port scan from every machine to target network although this may be inefficient
+- [ ] Check for split tunnel VPNs - attempt to enumerate workstations for other interfaces that could be in CDE
+- [ ] Identify admins or users with access to CDE and keylog for creds
+- [ ] Check netstats from jumpboxes and so forth into the CDE (ex. steal an RDP session via `tscon` or similar)
+- [ ] Folder sharing through RDP sessions
+- [ ] Pivot through a DC -- many times a DC will have more access into a CDE
+- [ ] Identify network devices that could be on the edge of the CDE and see if you can log in
+  - [ ] Target network admins to see if you can SSH into FWs and such
 
 ## Persistence & Data Exfil
 

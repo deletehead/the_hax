@@ -133,6 +133,7 @@ Assuming it's a PCI test, I'll use CDE for restricted segment:
 - [ ] Pivot through a DC -- many times a DC will have more access into a CDE
 - [ ] Identify network devices that could be on the edge of the CDE and see if you can log in
   - [ ] Target network admins to see if you can SSH into FWs and such
+- [ ] Check for domain trusts and see if you can abuse
 
 ## Persistence & Data Exfil
 

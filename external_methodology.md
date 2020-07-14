@@ -51,7 +51,14 @@ Check photos for metadata or even interesting data captured. Examples could be b
 - [ ] Investigate all findings, collect evidence, organize notes
 
 ## Application Mapping
-- From initial discovery and scanning, list out all web applications (including backend APIs) to test
-- Take each app and poke around it with Burp proxy to get some passive discovery
+- [ ] From initial discovery and scanning, list out all web applications (including backend APIs) to test
+- [ ] Take each app and poke around it with Burp proxy to get some passive discovery
+  - [ ] Check HTML source for things like comments including passwords or SQL queries, indications on other frameworks or libraries like Telerik
+  - [ ] Note GETs and POSTs
+- [ ] Note:
+  - Web server, frameworks, general tech stack
+  - `robots.txt` and similar meta files
+- [ ] If known frameworks (Wordpress, Drupal, etc.) are in use, investigate for known vulnerabilities
+  - Try `wpscan`, `droopescan`, etc.
 
 ## Web Application Pentest

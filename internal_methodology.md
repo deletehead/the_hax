@@ -139,4 +139,3 @@ Assuming it's a PCI test, I'll use CDE for restricted segment:
 
 ## Persistence & Data Exfil
 
-## Web App Pentesting

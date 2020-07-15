@@ -4,6 +4,10 @@ Focus of this will be external penetration tests. This includes both network and
 A word on webapps: ask for source code wherever available. OWASP states that a black box review is just not enough, and white box review will be much more comprehensive. It says:
 > While black-box penetration test results can be impressive and useful to demonstrate how vulnerabilities are exposed in a production environment, they are not the most effective or efficient way to secure an application. It is difficult for dynamic testing to test the entire code base, particularly if many nested conditional statements exist. If the source code for the application is available, it should be given to the security staff to assist them while performing their review. It is possible to discover vulnerabilities within the application source that would be missed during a black-box engagement.
 
+## Schedule
+- Spend the first day or two in OSINT, automated scanning, and all network-level testing
+- Spend the rest of the time on application-level testing
+
 ## Key Tooling
 - Nessus
 - Burp Suite Pro

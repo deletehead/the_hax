@@ -57,6 +57,8 @@ Check photos for metadata or even interesting data captured. Examples could be b
 ## Application Mapping
 - [ ] From initial discovery and scanning, list out all web applications (including backend APIs) to test
 - [ ] Take each app and poke around it with Burp proxy to get some passive discovery
+  - [ ] Check server responses and headers for interesting information (frameworks, web server, scripting languages, etc)
+  - [ ] Can you determine a web framework from the cookies being sent? ex. CakePHP
   - [ ] Check HTML source for things like comments including passwords or SQL queries, indications on other frameworks or libraries like Telerik
   - [ ] Note GETs and POSTs
 - [ ] Note:
@@ -66,3 +68,4 @@ Check photos for metadata or even interesting data captured. Examples could be b
   - Try `wpscan`, `droopescan`, etc.
 
 ## Web Application Pentest
+- [ ] Get interesting requests, and start actively scanning them with BurpPro

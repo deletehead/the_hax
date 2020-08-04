@@ -66,6 +66,36 @@ Check photos for metadata or even interesting data captured. Examples could be b
   - `robots.txt` and similar meta files
 - [ ] If known frameworks (Wordpress, Drupal, etc.) are in use, investigate for known vulnerabilities
   - Try `wpscan`, `droopescan`, etc.
+- [ ] Check HTTP methods (usually done by Nessus, etc.)
+- [ ] Brute force files and extensions with `gobuster`
+  - Identify the type of tech used and check the appropriate extensions (`php`, `aspx`, etc.)
+  - [Check for interesting extensions, too](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/03-Test_File_Extensions_Handling_for_Sensitive_Information.html). Ex. `zip`, `asa`, `config`, `inc`, `bak`, and `txt`
 
 ## Web Application Pentest
-- [ ] Get interesting requests, and start actively scanning them with BurpPro
+- [ ] Test file uploads:
+  - Uploading other extensions (ex. `phtml`) to bypass blacklists/filters
+- [ ] Subdomain takeover
+- [ ] Test [role definitions](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/03-Identity_Management_Testing/01-Test_Role_Definitions.html)
+- [ ] Can you [enumerate usernames](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/03-Identity_Management_Testing/04-Testing_for_Account_Enumeration_and_Guessable_User_Account.html)?
+- [ ] Authentication
+  - Creds sent in the clear?
+  - Check default or easy creds
+  - Check default creds for fresh accounts...is there a pattern?
+  - See if you can brute force or bypass front end lockout policies
+  - Check for [vulnerable forgot password](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/04-Authentication_Testing/05-Testing_for_Vulnerable_Remember_Password.html)
+  - Check for [weak password policy](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/04-Authentication_Testing/07-Testing_for_Weak_Password_Policy.html)
+  - If the app uses security questions, [check these too](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/04-Authentication_Testing/08-Testing_for_Weak_Security_Question_Answer.html)
+- [ ] Authorization
+  - Check to see if you can access things you shouldn't be able to (e.g. admin resources as a lowpriv user)
+- [ ] Session Management
+  - Note the cookies used by the app, and see where they are set (what portions of the app generate cookies)
+  - Are the cookies/tokens secure and unpredictable? Basic cryptanalysis -- do you notice parts of the cookie data that are similar/the same?
+  - Check dem JWTs
+  - Are cookies marked as secure?
+- [ ] Input validation
+  - Get interesting requests, and start actively scanning them with BurpPro (remember to be mindful of authentication)
+  - When looking through Burp traffic, make sure to keep an eye out for values that look like objects (I've found direct code injection this way, and of course object injection)
+
+
+
+

@@ -72,6 +72,7 @@ Check photos for metadata or even interesting data captured. Examples could be b
   - [Check for interesting extensions, too](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/03-Test_File_Extensions_Handling_for_Sensitive_Information.html). Ex. `zip`, `asa`, `config`, `inc`, `bak`, and `txt`
 
 ## Web Application Pentest
+- [ ] Passively scan with Burp and check for quick/boring wins: HSTS, cookie settings (secure flag, HttpOnly, etc), cert issues, etc.
 - [ ] Test file uploads:
   - Uploading other extensions (ex. `phtml`) to bypass blacklists/filters
 - [ ] Subdomain takeover

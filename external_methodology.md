@@ -13,6 +13,12 @@ A word on webapps: ask for source code wherever available. OWASP states that a b
 - Burp Suite Pro
 - Other tools on Kali Linux
 
+## Questions to Answer
+- [ ] Are there any services open to the Internet that shouldn't be?
+  - [ ] Are there any administrative services (SSH/RDP/etc.) that aren't protected by MFA?
+    - If there are, it's a finding. If not, get a second opinion based on their situation if this should be a finding or not.
+  - Services such as NTP, SNMP, etc. should be a finding and PCI fail if compliance-oriented test
+
 ## OSINT
 - [ ] Run `discover.sh`
   - This will include DNS information, whois, etc.

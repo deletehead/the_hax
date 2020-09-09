@@ -18,6 +18,9 @@ The focus here is on steps to take, tools to run, things to check. Other files i
 - Day 3-5:
   - [ ] When you can access a bunch of servers, start port scanning from those to the CDE
 
+## Notes before Reporting
+- Ensure that IPs, ports, etc match. For instance, go over the IPs and make sure they all actually ARE CDE IPs. If there's question, hash it out with the client.
+
 ## Open Source Intelligence
 - [ ] Simply *Google the target*. What does the company do? What information do they store/process? What's their business?
 - [ ] Check for sensitive documents:

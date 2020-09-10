@@ -113,6 +113,13 @@ Check photos for metadata or even interesting data captured. Examples could be b
     - https://book.hacktricks.xyz/windows/checklist-windows-privilege-escalation
     - https://book.hacktricks.xyz/windows/windows-local-privilege-escalation
     - https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/winPEAS
+- Check common places for creds:
+    - Windows:
+      - Sticky notes in sqlite at `C:\Users\<user>\AppData\Local\Packages\Microsoft.MicrosoftStickyNotes_8wekyb3d8bbwe\LocalState\plum.sqlite`
+      - OneNote
+    - Linux:
+      - `.bashrc` files
+      - Log files
 
 ## Domain PrivEsc
 - [ ] Run BloodHound

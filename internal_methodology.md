@@ -107,6 +107,7 @@ Check photos for metadata or even interesting data captured. Examples could be b
 - Check for webmail/Exchange -- mailsniper, ruler, etc
     - https://github.com/sensepost/ruler/wiki/Homepage
     - Log in to O365 or internal and own their mailbox
+- Check for Zerologon: https://www.secura.com/blog/zero-logon
 
 ## Local PrivEsc
 - Local priv esc: 

@@ -81,6 +81,7 @@ Check photos for metadata or even interesting data captured. Examples could be b
   - PostgreSQL: check for unauthenticated instances with `postgres:` (MSF module: `auxiliary/scanner/postgres/postgres_login`)
     - **This results in automatic RCE via `COPY TO` if version is >=9.3!**
   - MSSQL: `sa:sa`, `sa:`, and similar (MSF module: `auxiliary/scanner/mssql/mssql_login`)
+- [ ] Check for port 12721, java deserialization on vCenter. Can use `nmap -sV --script rmi-* ip` to validate
 
 ## Getting a Foothold
 - [ ] Begin running [Responder](https://github.com/SpiderLabs/Responder):

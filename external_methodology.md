@@ -103,7 +103,8 @@ Check photos for metadata or even interesting data captured. Examples could be b
 - [ ] Input validation
   - Get interesting requests, and start actively scanning them with BurpPro (remember to be mindful of authentication)
   - When looking through Burp traffic, make sure to keep an eye out for values that look like objects (I've found direct code injection this way, and of course object injection)
-
+- [ ] Server-Side Template Injection (SSTI)
+  - Is there a way to get the app to send me an email? Can I inject code into templates?
 
 
 

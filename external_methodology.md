@@ -79,6 +79,27 @@ Check photos for metadata or even interesting data captured. Examples could be b
   - [Check for interesting extensions, too](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/03-Test_File_Extensions_Handling_for_Sensitive_Information.html). Ex. `zip`, `asa`, `config`, `inc`, `bak`, and `txt`
 
 ## Web Application Pentest
+- [ ] Build a sitemap of the site (tracked in Burp)
+- [ ] What JS libraries are in use?
+  - Check for any `dist/` files or similar that could indicate more of a repo was copied into the app than was necessary
+  - Can you open a `README.md` or other file from the original lib repo? (this stuff would be BPO/low level vulns but this is good info)
+  - Are there `.html` files in the repo files? Good avenue to check for XSS
+  - Look at where the JS libs are kept, and brute force through to find more JS libs exposed than what you can see
+  ```
+  # Grab top 10k libs by popularity (can increase if needed)
+  curl https://raw.githubusercontent.com/nice-registry/all-the-package-names/master/names.json | jq '.[0:10000]' | awk -F'"' '/,/ {print $2}' > npm-10k-libs.lst
+  /opt/gobuster dir -k -u https://target.com -w npm-10k-libs.lst
+  ```
+  - Try to identify version info of these by looking for `README`s or other info files -- use SecList's `quickhits.txt` for this:
+  ```
+  /opt/gobuster dir -k -u https://target.com -q -w /usr/share/seclists/Discovery/Web-Content/quickhits.txt
+  ```
+  - Search repos for DOM-based XSS and similar
+  ```
+  grep -r 'document.write' ./ --include *.html
+  ```
+- [ ] Load a page that does NOT exist to determine the format of a typical 404 error
+- [ ] Are websockets (`wss://`) in use anywhere? These can be very juicy and have sketchy auth mechanisms
 - [ ] Passively scan with Burp and check for quick/boring wins: HSTS, cookie settings (secure flag, HttpOnly, etc), cert issues, etc.
 - [ ] Test file uploads:
   - Uploading other extensions (ex. `phtml`) to bypass blacklists/filters

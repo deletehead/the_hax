@@ -79,15 +79,20 @@ Check photos for metadata or even interesting data captured. Examples could be b
   - [Check for interesting extensions, too](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/03-Test_File_Extensions_Handling_for_Sensitive_Information.html). Ex. `zip`, `asa`, `config`, `inc`, `bak`, and `txt`
 
 ## Web Application Pentest
-Follow:
-- Authorization
-- Authentication
-- Auditing (Logging)
-- Injection
-- Cryptographic
-- Configuration
-- Reporting
+### White/Gray Box
+- Follow these general steps:
+  - Authorization
+  - Authentication
+  - Auditing (Logging)
+  - Injection
+  - Cryptographic
+  - Configuration
+  - Reporting
+- USE A DEBUGGER! Don't just guess how things are being parsed, debug it. It's worth it. Debug the code, the server, AND the DB!
+- Identify how the application routes requests
+- Find what portions of the app are available to unauthenticated/guest users -- find what will cue you in to what this is and then analyze interesting functionality, esp looking for thing such as SQL injection and logic flaws
 
+### Black Box
 - [ ] Build a sitemap of the site (tracked in Burp)
 - [ ] What JS libraries are in use?
   - Check for any `dist/` files or similar that could indicate more of a repo was copied into the app than was necessary

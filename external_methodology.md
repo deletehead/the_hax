@@ -91,6 +91,7 @@ Check photos for metadata or even interesting data captured. Examples could be b
 - USE A DEBUGGER! Don't just guess how things are being parsed, debug it. It's worth it. Debug the code, the server, AND the DB!
 - Identify how the application routes requests
 - Find what portions of the app are available to unauthenticated/guest users -- find what will cue you in to what this is and then analyze interesting functionality, esp looking for thing such as SQL injection and logic flaws
+- Check for object injection (like in PHP, Perl, etc.)
 
 ### Black Box
 - [ ] Build a sitemap of the site (tracked in Burp)

@@ -73,6 +73,20 @@ Check photos for metadata or even interesting data captured. Examples could be b
 - [ ] Scan for SMB and for SMB Signing: `crackmapexec smb open-ports/445.txt | tee scans/cme-smb-scan.log`
 - [ ] Scan for top MS vulns: `nmap -iL open-ports/445.txt -p445 --script=smb-vuln-ms08-067,smb-vuln-ms17-010 -v | tee scans/nmap-smb-vulns.log`
 - [ ] Scan for BlueKeep (Win7 is a win, Win2k8 can DoS)
+- [ ] Scan for "easy RCE ports":
+  - Java RMI: 1090,1098,1099,4444,11099,47001,47002,10999
+  - WebLogic: 7000-7004,8000-8003,9000-9003,9503,7070,7071
+  - JDWP: 45000,45001
+  - JMX: 8686,9012,50500
+  - GlassFish: 4848
+  - jBoss: 11111,4444,4445
+  - Cisco Smart Install: 4786
+  - HP Data Protector: 5555,5556
+  - Redis: 6379
+  - Gitlab: 
+  ```
+  nmap -iL corp.lst -Pn -sVC -p1090,1098,1099,4444,11099,47001,47002,10999,7000-7004,8000-8003,9000-9003,9503,7070,7071,45000,45001,8686,9012,50500,4848,11111,4444,4445,4786,5555,5556 -oA scans/nmap-corp-Pn-sVC-easy-rces -v --open -T4
+  ```
 - [ ] Check for Jenkins instances. Typically runs on TCP/8080 (check `aquatone` output).
 - [ ] SNMP checks
 - [ ] `rpcclient` Check for NULL sessions, enum info if auth'd

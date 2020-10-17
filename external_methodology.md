@@ -96,6 +96,7 @@ Check photos for metadata or even interesting data captured. Examples could be b
 ### Black Box
 - [ ] Build a sitemap of the site (tracked in Burp)
 - [ ] What JS libraries are in use?
+  - In developer tools, you can poke around for XHR (api requests via JS) and JS goodies like this: https://www.youtube.com/watch?v=FTeE3OrTNoA
   - Check for any `dist/` files or similar that could indicate more of a repo was copied into the app than was necessary
   - Can you open a `README.md` or other file from the original lib repo? (this stuff would be BPO/low level vulns but this is good info)
   - Are there `.html` files in the repo files? Good avenue to check for XSS

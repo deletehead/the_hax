@@ -88,7 +88,10 @@ Check photos for metadata or even interesting data captured. Examples could be b
   - Cryptographic
   - Configuration
   - Reporting
-- USE A DEBUGGER! Don't just guess how things are being parsed, debug it. It's worth it. Debug the code, the server, AND the DB!
+- Remember:
+  - USE A DEBUGGER! Don't just guess how things are being parsed, debug it. It's worth it. Debug the code, the server, AND the DB!
+  - CHECK DOCUMENTATION. Don't just hunt for requests and hope that you've issued an interesting request. Check the docs and see what's possible.
+  - When API testing, look for as simple a request as you can find and play with that. Less things will go wrong.
 - Identify how the application routes requests
 - Find what portions of the app are available to unauthenticated/guest users -- find what will cue you in to what this is and then analyze interesting functionality, esp looking for thing such as SQL injection and logic flaws
 - Check for object injection (like in PHP, Perl, etc.)

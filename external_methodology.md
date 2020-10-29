@@ -77,6 +77,7 @@ Check photos for metadata or even interesting data captured. Examples could be b
 - [ ] Brute force files and extensions with `gobuster`
   - Identify the type of tech used and check the appropriate extensions (`php`, `aspx`, etc.)
   - [Check for interesting extensions, too](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/03-Test_File_Extensions_Handling_for_Sensitive_Information.html). Ex. `zip`, `asa`, `config`, `inc`, `bak`, and `txt`
+- [ ] Check for Websockets and do WS checks such as checking for auth keys and stuff
 
 ## Web Application Pentest
 ### White/Gray Box

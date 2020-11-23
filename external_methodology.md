@@ -60,6 +60,7 @@ Check photos for metadata or even interesting data captured. Examples could be b
 - [ ] When that's done, do a UDP scan: `nmap -iL cde.lst -sU --max-retries=1 -v -oA scans/nmap-sU-top1k --min-hostgroup=128 | tee nmap.log`
 - [ ] Exploit where applicable
 - [ ] Investigate all findings, collect evidence, organize notes
+- [ ] Go through web apps and request HTTP/1.0, just in case -- sometimes you'll get internal IPs or something
 
 ## Application Mapping
 - [ ] From initial discovery and scanning, list out all web applications (including backend APIs) to test

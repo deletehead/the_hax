@@ -203,7 +203,9 @@ Includes web services (not just port 80)
 - Exploiting BlueKeep
   - MSF has a module, but it will likely DoS Win2k8. Win7 is more stable and can get you a shell.
   - NCC has some internal exploits you may want to try if this is your only option.
-  
+
+## Broadcast Traffic Attacks
+- `tcpdump` command for listening to all broadcast traffic: `tcpdump -i eth0 -w dumps/tcpdump-broadcast ether broadcast and ether multicast`
 
 ## Linux
 

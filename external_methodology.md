@@ -58,6 +58,8 @@ Check photos for metadata or even interesting data captured. Examples could be b
 - [ ] Fire off a Nessus scan for the provided scope
 - [ ] Kick off an nmap scan: `nmap -iL cde.lst -sVC -p- --max-retries=1 -v -oA scans/nmap-sVC-allports --min-hostgroup=128 | tee nmap.log`
 - [ ] When that's done, do a UDP scan: `nmap -iL cde.lst -sU --max-retries=1 -v -oA scans/nmap-sU-top1k --min-hostgroup=128 | tee nmap.log`
+  - [ ] Parse through results with [`nmapscrape.rb`](https://raw.githubusercontent.com/altjx/ipwn/master/nmap_scripts/nmapscrape.rb)
+- [ ] For SSL/TLS services, use `sslscan` or similar to test for SSL and get the proper output
 - [ ] Exploit where applicable
 - [ ] Investigate all findings, collect evidence, organize notes
 - [ ] Go through web apps and request HTTP/1.0, just in case -- sometimes you'll get internal IPs or something

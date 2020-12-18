@@ -143,6 +143,8 @@ Check photos for metadata or even interesting data captured. Examples could be b
   - Note the cookies used by the app, and see where they are set (what portions of the app generate cookies)
   - Are the cookies/tokens secure and unpredictable? Basic cryptanalysis -- do you notice parts of the cookie data that are similar/the same?
   - Check dem JWTs
+    - If HS256, check the `Non` algo attack, the key reuse attack with the site's public key, and try to crack the HS256 secret
+    - If RS256, try related attacks
   - Are cookies marked as secure?
 - [ ] Input validation
   - Get interesting requests, and start actively scanning them with BurpPro (remember to be mindful of authentication)

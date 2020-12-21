@@ -146,12 +146,11 @@ Check photos for metadata or even interesting data captured. Examples could be b
     - If HS256, check the `Non` algo attack, the key reuse attack with the site's public key, and try to crack the HS256 secret
     - If RS256, try related attacks
   - Are cookies marked as secure?
-- [ ] Input validation
-  - Get interesting requests, and start actively scanning them with BurpPro (remember to be mindful of authentication)
-  - When looking through Burp traffic, make sure to keep an eye out for values that look like objects (I've found direct code injection this way, and of course object injection)
+- [ ] Check [CORS policy](https://portswigger.net/research/exploiting-cors-misconfigurations-for-bitcoins-and-bounties)
 - [ ] Server-Side Template Injection (SSTI)
   - Is there a way to get the app to send me an email? Can I inject code into templates?
   - Search for `template` in search fields -- see if you render a template in a preview or something
-
-
+- [ ] Input validation
+  - Get interesting requests, and start actively scanning them with BurpPro (remember to be mindful of authentication)
+  - When looking through Burp traffic, make sure to keep an eye out for values that look like objects (I've found direct code injection this way, and of course object injection)
 

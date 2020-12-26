@@ -24,6 +24,7 @@ namespace ConsoleApp1
               // shellcode
               // goes
               // here
+	      // MATCH ARCHITECTURES!
             };
             
             int size = buf.Length;

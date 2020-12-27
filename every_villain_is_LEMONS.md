@@ -212,6 +212,8 @@ Includes web services (not just port 80)
 
 # Linux
 
+---
+
 # Windows
 - Dump LSASS for to extract with MMK locally. If it's a really poorly-protected/monitored enviro you might be able to just run mimikatz
   ```
@@ -278,6 +280,9 @@ Includes web services (not just port 80)
 
 ## App Whitelisting Bypasses
 - If default Applocker rules are applied, this means you can bypass by copying bins into `C:\Windows\Temp\` and similar writable folders for to execute.
+- You can also use native bins such as `rundll` to get code exec: `rundll32 myevil.dll,pwnFunction`
+- Use an alternate data stream: `C:\path\to\writable\file.log:evil.js`
+- Check if there's a 3rd party scripting engine such as python
 
 ## Mimikatz
 You can wrap these in for ex. `PS> Invoke-Mimikatz -Command '"sekurlsa::pth /user:lemons /domain:dollarcorp.moneycorp.local /ntlm:NThashHERE /run:powershell.exe`

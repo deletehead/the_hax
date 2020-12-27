@@ -279,7 +279,9 @@ Includes web services (not just port 80)
   - Note that the reg cmd value can be up to 16383 characters
 
 ## App Whitelisting Bypasses
-- If default Applocker rules are applied, this means you can bypass by copying bins into `C:\Windows\Temp\` and similar writable folders for to execute.
+- If default Applocker rules are applied, this means you can bypass by copying bins into `C:\Windows\Temp\` or `C:\Windows\SysWOW64\Tasks\Microsoft\Windows\PLA\System\` and similar writable folders for to execute.
+  - Check perms with `accesschk.exe`: `accesschk.exe "student" C:\Windows -wusd > C:\Users\student\chck.txt`
+  - Loop through with `icacls.exe` to see which I can exec from: `for /F "tokens=2 delims= " %x in (C:\users\student\chck.txt) do icacls %x | findstr RX`
 - You can also use native bins such as `rundll` to get code exec: `rundll32 myevil.dll,pwnFunction`
 - Use an alternate data stream: `C:\path\to\writable\file.log:evil.js`
 - Check if there's a 3rd party scripting engine such as python or if JRE for java is on there

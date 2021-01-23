@@ -20,17 +20,18 @@ General methodology for testing a retail store. The test will be in two phases: 
 - Try your plunderbug to tap the connection between POS and switch. Also use it between pinpad and wherever that's plugged in.
 - Is there exposed USBs you can plug a bash bunny/rubber ducky in?
 - Can you scan the storage for unencrypted PAN?
+- Are there wireless POS devices in addition to hardwired?
 
 ## LAN Testing
+- Note the subnets, etc. for scoping information
 - Connect an unauthorized new device on each network switch or hub and test for (a) accessibility to network and (b) DHCP addresses being provided
 - If Wireless is in use, attempt to obtain the pre-shared key and connect to the network.
   - WEP is an autofail. Crack it with extreme prejudice.
   - WPS is also an auutofail. Crack it.
-- Complete standard Network & OS tests of back-office and manager systems
+- Complete standard Network & OS tests of back-office and manager systems. Remember, you're looking for PAN.
 - Look for common MITM vulnerabilities: `mitm6` and ARP poisoning.
   - Only do ARP poisoning if you can do it _safely_ and targeted against a dedicated testing machine. Don't bring down the entire store.
 - Look for other poisoning attacks: LLMNR/NBNS
 - Test the ability to reach the corporate network
 - Test the ability to reach other stores
 - Document and test the use of remote access tools such as VNC and Microsoft RDP
-- 

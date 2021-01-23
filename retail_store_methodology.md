@@ -7,6 +7,7 @@ General methodology for testing a retail store. The test will be in two phases: 
 - Examine network equipment inside administrative interfaces for default passwords
 
 ## POS Testing
+- Get a photo/documentation of the make/model/serial number of the device
 - Examine the POS Pin Entry/Terminal Devices for tampering. Determine if the devices are constrained in any way, or would be susceptible to removal and replacement (e.g. are not locked down)
 - Test the POS for common vulnerabilities.
 - Is autologon being used?
@@ -25,7 +26,7 @@ General methodology for testing a retail store. The test will be in two phases: 
 ## LAN Testing
 - Note the subnets, etc. for scoping information
 - Connect an unauthorized new device on each network switch or hub and test for (a) accessibility to network and (b) DHCP addresses being provided
-- If Wireless is in use, attempt to obtain the pre-shared key and connect to the network.
+- If Wireless is in use, attempt to obtain the pre-shared key and connect to the network. Record/document SSIDs and verify which ones are owned by target corp.
   - WEP is an autofail. Crack it with extreme prejudice.
   - WPS is also an auutofail. Crack it.
 - Complete standard Network & OS tests of back-office and manager systems. Remember, you're looking for PAN.
@@ -35,3 +36,11 @@ General methodology for testing a retail store. The test will be in two phases: 
 - Test the ability to reach the corporate network
 - Test the ability to reach other stores
 - Document and test the use of remote access tools such as VNC and Microsoft RDP
+- Can you pivot in some way to CDE?
+
+## Success Criteria
+You win if:
+- Direct observation of PAN during transmission to back-end systems
+- Compromise of POS systems with the ability to read memory and/or capture input.
+- Successful compromise of systems in the CDE through connectivity provided by the retail network.
+The success criteria will be different for every engagement and environment and should be established during the kick-off call prior to testing.

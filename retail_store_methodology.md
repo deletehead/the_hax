@@ -5,6 +5,9 @@ General methodology for testing a retail store. The test will be in two phases: 
 - Call the store contact first and ensure they know you're coming and are ready
 - Ensure they check ID to verify you are who you say
 - Examine network equipment inside administrative interfaces for default passwords
+- Basic physical security checks:
+  - Are doors/cabinets/etc. locked?
+  - Call out anything that's weird/off/abusable
 
 ## POS Testing
 - Get a photo/documentation of the make/model/serial number of the device

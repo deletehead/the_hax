@@ -10,6 +10,7 @@ General methodology for testing a retail store. The test will be in two phases: 
   - Call out anything that's weird/off/abusable
 
 ## POS Testing
+- Ask if they use a wireless/mobile device in the store. They might not know of a wireless network but it could be hidden and dedicated for devices. Also, check those for payment software/processing.
 - Get a photo/documentation of the make/model/serial number of the device
 - Examine the POS Pin Entry/Terminal Devices for tampering. Determine if the devices are constrained in any way, or would be susceptible to removal and replacement (e.g. are not locked down)
 - Test the POS for common vulnerabilities.

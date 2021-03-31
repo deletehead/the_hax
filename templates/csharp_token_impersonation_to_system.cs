@@ -7,6 +7,8 @@ using System.Runtime.InteropServices;
 
 namespace impersonationstation
 {
+    ### This code will use PrinterSpoofer to get a SYSTEM token and impersonate it to spawn cmd.exe as system. 
+    ##  Needs SeImpersonatePrivilege and the SpoolSample.exe exe
     class Program
     {
         [StructLayout(LayoutKind.Sequential)]

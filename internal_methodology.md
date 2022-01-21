@@ -57,6 +57,7 @@ Check photos for metadata or even interesting data captured. Examples could be b
 
 ## Network Scanning & Enumeration
 - [ ] Kick off a Nessus scan if applicable
+- [ ] Check for phone attack paths such as [Cisco phones](https://www.trustedsec.com/blog/seeyoucm-thief-exploiting-common-misconfigurations-in-cisco-phone-systems/)
 - [ ] Scan the CDE/target environment: `masscan -iL cde.txt -p0-65535 -oG masscan-cde-allports`
 - [ ] Ping sweep
 - [ ] Kick off a big top 1024 scan. Don't forget to log it in case the scans hang up. Increase to `-T5` if you're feeling adventurous:

@@ -149,7 +149,10 @@ Check photos for metadata or even interesting data captured. Examples could be b
 - [ ] Identify servers AND users that are configured for constrained delegation
 - [ ] Check for SMB signing not required and such. Consider the printer bug and see if you can relay that.
 - [ ] Run `CredNinja.py` against the network with the compromised accounts. See if you have local admin and can keep dumping hashes
-- [ ] Check for SMB servers. Use `smbclient.py` and `plunder` to search for interesting files in those shares that you can access
+- [ ] Check for SMB servers. Use `smbclient.py` and `crackmapexec` to search for interesting files in those shares that you can access
+```
+crackmapexec smb -u USER -p PASS -d domain.org --shares 445.lst | tee enum/cme-enumshares.lst
+```
 - [ ] Check domain 
 
 ## Lateral Movement to Restricted Segment

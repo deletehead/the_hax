@@ -152,6 +152,7 @@ Check photos for metadata or even interesting data captured. Examples could be b
 - [ ] Check for SMB servers. Use `smbclient.py` and `crackmapexec` to search for interesting files in those shares that you can access
 ```
 crackmapexec smb -u USER -p PASS -d domain.org --shares 445.lst | tee enum/cme-enumshares.lst
+grep READ enum/cme-enumshares.lst
 ```
 - [ ] Check domain 
 
